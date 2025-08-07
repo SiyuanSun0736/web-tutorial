@@ -1,0 +1,13 @@
+##header
+GET http://localhost:8080/header HTTP/1.1
+
+### post
+GET http://localhost:8080/post HTTP/1.1
+content-type: application/json
+{
+  "name": "sample",
+  "time": "2023-10-01T12:00:00Z"
+}
+
+### home
+GET http://localhost:8080/home?id=123&name=Dave&id=456&name=Nick HTTP/1.1
