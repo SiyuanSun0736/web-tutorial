@@ -1,0 +1,19 @@
+{{ define "layout" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <!--css links or other head elements can be added here-->
+    {{ block "head" . }}{{ end }}
+
+</head>
+<body>
+    <!-- javascript links or other body elements can be added here -->
+    {{ block "body" . }}{{ end }}
+</body>
+</html>
+
+{{ end }}
