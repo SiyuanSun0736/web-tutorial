@@ -1,0 +1,82 @@
+{{ define "head" }}
+<title>{{ . }}</title>
+<style>
+    .company-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px 0;
+        transition: box-shadow 0.3s ease;
+    }
+    .company-card:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .company-name {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .company-description {
+        color: #666;
+        margin-bottom: 15px;
+    }
+    .btn-view {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    .btn-view:hover {
+        background-color: #0056b3;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+</style>
+{{ end }}
+
+{{ define "body" }}
+<div class="container">
+    <h1>{{ . }}</h1>
+    <div class="companies-list">
+        <div class="company-card">
+            <div class="company-name">科技创新公司</div>
+            <div class="company-description">专注于人工智能和机器学习技术的创新公司</div>
+            <a href="/companies/1" class="btn-view">查看详情</a>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-name">绿色能源有限公司</div>
+            <div class="company-description">致力于可再生能源解决方案的环保企业</div>
+            <a href="/companies/2" class="btn-view">查看详情</a>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-name">数字营销集团</div>
+            <div class="company-description">提供全方位数字营销和品牌推广服务</div>
+            <a href="/companies/3" class="btn-view">查看详情</a>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-name">智能制造股份</div>
+            <div class="company-description">工业4.0和智能制造解决方案提供商</div>
+            <a href="/companies/4" class="btn-view">查看详情</a>
+        </div>
+        
+        <div class="company-card">
+            <div class="company-name">生物医药研发</div>
+            <div class="company-description">专业从事生物制药和医疗器械研发</div>
+            <a href="/companies/5" class="btn-view">查看详情</a>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="/" style="color: #007bff; text-decoration: none;">← 返回首页</a>
+    </div>
+</div>
+{{ end }}

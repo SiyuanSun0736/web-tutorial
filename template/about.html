@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="/css/about.css">
-</head>
-<body>
-    <h1 class="about"> About me </h1>
-    <img src="/img/black.png" alt="">
-</body>
-</html>
+{{ template "layout" . }}
+
+{{ define "head" }}
+<!-- 这里添加特定页面的 CSS -->
+<link rel="stylesheet" href="/css/about.css">
+{{ end }}
+
+{{ define "body" }}
+<header>
+    <h1>关于我</h1>
+</header>
+<main>
+    <div class="about-content">
+        <p>这是关于页面的内容</p>
+        <img src="/img/black.png" alt="关于我的图片">
+    </div>
+</main>
+<footer>
+    <p>© 2025 我的网站</p>
+</footer>
+<!-- 这里添加特定页面的 JavaScript -->
+<script src="/js/about.js"></script>
+{{ end }}
