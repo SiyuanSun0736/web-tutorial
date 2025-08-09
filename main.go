@@ -1,11 +1,33 @@
 package main
 
 import (
-	"github.com/SiyuanSun0736/web-tutorial/controller"
+	"encoding/json"
+	"log"
 	"net/http"
 )
 
 func main() {
-	controller.RegisterRoutes()
+	http.HandleFunc("/companies", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodPost:
+			dec := json.NewDecoder(r.Body)
+			company := Company{}
+			err := dec.Decode(&company)
+			if err != nil {
+				log.Println(err.Error())
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+			enc := json.NewEncoder(w)
+			err = enc.Encode(company)
+			if err != nil {
+				log.Println(err.Error())
+				w.WriteHeader(http.StatusInternalServerError)
+				return
+			}
+		default:
+			w.WriteHeader(http.StatusMethodNotAllowed)
+		}
+	})
 	http.ListenAndServe(":8080", nil)
 }
