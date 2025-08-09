@@ -21,3 +21,10 @@ content-type: application/json
   "name": "GOOGLE",
   "country": "USA"
 }
+
+### middleware
+GET http://localhost:8080/companies HTTP/1.1
+
+### middleware_auth
+GET http://localhost:8080/companies HTTP/1.1
+Authorization:  abcd
