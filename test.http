@@ -1,0 +1,26 @@
+
+
+###
+GET http://localhost:8080/companies HTTP/1.1
+
+###
+GET http://localhost:8080/api/companies HTTP/1.1
+
+###
+POST http://localhost:8080/api/companies HTTP/1.1
+
+{
+    "id": "008",
+    "name": "Facebook",
+    "nickname": "FB"
+}
+
+###
+POST http://localhost:8080/api/companies HTTP/1.1
+Authorization: Basic dGVzdDoxMjM=
+
+{
+    "id": "008",
+    "name": "Facebook",
+    "nickname": "FB"
+}

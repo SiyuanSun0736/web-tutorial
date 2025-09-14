@@ -1,0 +1,53 @@
+{{define "content"}}
+<a href="/companies/add/" class="btn btn-primary mb-3">Add New Company</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>ID</th>
+            <th>公司名称</th>
+            <th>昵称</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{range $i, $c := .}}
+        <tr>
+            <th scope="row">{{$i | add 1 }}</th>
+            <td>{{$c.ID}}</td>
+            <td>{{$c.Name}}</td>
+            <td>{{$c.NickName}}</td>
+            <td>
+                <a href="/companies/edit/{{$c.ID}}" target="_self">编辑</a>
+                <a class="del-btn ml-2" href="javascript:void(0)" data-id="{{$c.ID}}">删除</a>
+            </td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.del-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const companyId = this.getAttribute('data-id');
+            if (confirm('确定要删除这个公司吗？')) {
+                fetch(`/companies/delete/${companyId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('test:123')
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('删除失败');
+                    }
+                });
+            }
+        });
+    });
+});
+</script>
+{{end}}
